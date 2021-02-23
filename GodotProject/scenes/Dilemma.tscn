@@ -75,16 +75,7 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="Option1" parent="CenterContainer/VBoxContainer/OptionContainer" instance=ExtResource( 5 )]
-margin_left = 14.0
-margin_right = 364.0
-margin_bottom = 60.0
-
-[node name="Option2" parent="CenterContainer/VBoxContainer/OptionContainer" instance=ExtResource( 5 )]
 margin_left = 396.0
 margin_right = 746.0
 margin_bottom = 60.0
-
-[node name="Option3" parent="CenterContainer/VBoxContainer/OptionContainer" instance=ExtResource( 5 )]
-margin_left = 778.0
-margin_right = 1128.0
-margin_bottom = 60.0
+[connection signal="on_chosen" from="CenterContainer/VBoxContainer/OptionContainer/Option1" to="." method="chose_option"]

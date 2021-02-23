@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
-func option_picked():
-	pass
+func chose_option(content):
+	hide()
