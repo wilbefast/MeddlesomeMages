@@ -1,4 +1,6 @@
 extends Control
 
-func chose_option(content):
-	hide()
+signal on_resolved(option)
+
+func chose_option(option):
+	emit_signal("on_resolved", option)

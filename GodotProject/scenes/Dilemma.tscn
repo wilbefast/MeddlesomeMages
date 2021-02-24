@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/Option.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/OptionTooltip.tscn" type="PackedScene" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 2 )
 
@@ -79,7 +79,7 @@ stretch_mode = 6
 margin_top = 424.0
 margin_right = 1143.0
 margin_bottom = 474.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Hey bro, these fish are acting super weird man - I'm freaking out!"
 align = 1
