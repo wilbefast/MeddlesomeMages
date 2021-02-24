@@ -22,10 +22,7 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 7.1272
-margin_top = -3.5636
-margin_right = 7.1272
-margin_bottom = -3.5636
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

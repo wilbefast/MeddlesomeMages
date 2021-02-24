@@ -19,6 +19,10 @@ config/name="MeddlesomeWizard"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+DilemmaDatabase="*res://scripts/resources/DilemmaDatabase.gd"
+
 [display]
 
 window/size/width=1920

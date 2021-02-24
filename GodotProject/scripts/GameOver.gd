@@ -2,6 +2,7 @@ extends Control
 
 signal on_restart
 
-func _input(event : InputEvent): 
-	if self.is_visible_in_tree() and event is InputEventMouseButton and event.pressed:
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		accept_event()
 		emit_signal("on_restart")
