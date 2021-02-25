@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "DilemmaData",
+"language": "GDScript",
+"path": "res://resources/DilemmaData.gd"
+} ]
 _global_script_class_icons={
-
+"DilemmaData": ""
 }
 
 [application]
@@ -21,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DilemmaDatabase="*res://scripts/resources/DilemmaDatabase.gd"
+DilemmaDatabase="*res://resources/DilemmaDatabase.gd"
 
 [display]
 

@@ -1,5 +1,7 @@
 extends Resource
 
+class_name DilemmaData
+
 export(String) var title
 export(String) var description
 

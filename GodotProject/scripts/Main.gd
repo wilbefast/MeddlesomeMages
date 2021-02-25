@@ -14,6 +14,7 @@ func start_game():
 	$Title.hide()
 	$Dilemma.show()
 	dilemma_index = 0
+	$Dilemma.set_data(DilemmaDatabase.data[0])
 
 func restart():
 	$Title.show()
@@ -25,5 +26,5 @@ func next_dilemma(option):
 		$Dilemma.hide()	
 		$GameOver.show()
 	else:
-		pass
+		$Dilemma.set_data(DilemmaDatabase.data[dilemma_index])
 	
