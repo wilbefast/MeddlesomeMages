@@ -1,11 +1,12 @@
 extends Node
 
-# List of attributes
-# - domination
-# - immortality
-# - knowledge
-# - justice
-# - sensation
+var attributes = [
+	"domination",
+	"immortality",
+	"knowledge",
+	"justice",
+	"sensation"
+]
 
 var dilemmas = [ 
 	DilemmaData.new({
@@ -43,3 +44,16 @@ var dilemmas = [
 		]
 	})
 ]
+
+func get_initial_attributes():
+	var result = {}
+	for a in attributes:
+		result[a] = 0
+	return result
+
+func get_initial_dilemmas():
+	var result = []
+	for d in dilemmas:
+		result.push_back(d)
+	result.shuffle()
+	return result

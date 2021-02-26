@@ -1,14 +1,8 @@
 extends Node
 
 var chosen_options : Array = []
-var attributes = {
-	"domination" : 0,
-	"immortality" : 0,
-	"knowledge" : 0,
-	"justice" : 0,
-	"sensation" : 0
-}
-var dilemmas : Array = []
+var attributes : Dictionary
+var dilemmas : Array
 
 func _ready():
 	$Dilemma.hide()
@@ -20,9 +14,8 @@ func _unhandled_input(event):
 
 func start_game():
 	# update model
-	for d in Database.dilemmas:
-		dilemmas.push_back(d)
-	dilemmas.shuffle()
+	attributes = Database.get_initial_attributes()
+	dilemmas = Database.get_initial_dilemmas()
 	
 	# update view
 	$Title.hide()
@@ -32,9 +25,6 @@ func start_game():
 func restart():
 	# update model
 	chosen_options.clear()
-	for key in attributes:
-		attributes[key] = 0
-	dilemmas.clear()
 	
 	# update view
 	$GameOver.hide()
