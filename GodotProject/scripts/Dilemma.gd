@@ -1,6 +1,6 @@
 extends Control
 
-const OPTION = preload("res://scenes/Option.tscn")
+const Option = preload("res://scenes/Option.tscn")
 
 signal on_resolved(option)
 
@@ -19,14 +19,14 @@ func set_data(dilemma_data : DilemmaData):
 	# Set options
 	var option_container_node = get_node(option_container)
 	for option_data in dilemma_data.options:
-		var option = OPTION.instance()
+		var option = Option.instance()
 		option_container_node.add_child(option)
 		option.option_data = option_data
 		option.connect("on_chosen", self, "chose_option")
 		option.connect("on_tooltipped", option_tooltip_node, "show_option")
 
-func chose_option(optionData):
+func chose_option(option_data):
 	var option_container_node = get_node(option_container)	
 	for option in option_container_node.get_children():
 		option.queue_free()
-	emit_signal("on_resolved", optionData)
+	emit_signal("on_resolved", option_data)
