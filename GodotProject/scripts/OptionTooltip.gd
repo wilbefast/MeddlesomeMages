@@ -1,12 +1,15 @@
 extends Control
 
+var optionData : OptionData = null
+
 func _ready():
 	hide()
 
-func show_option(content):
-	if content == null:
-		hide()
-	else:
-		$CenterContainer/Label.text = "One day this tooltip will contain useful information about '" + content + "'. This is not that day."
+func show_option(new_optionData, do_show):
+	if do_show and new_optionData != null:
+		optionData = new_optionData
+		$CenterContainer/Label.text = optionData.tooltip
 		show()
-	
+	else:
+		optionData = null
+		hide()

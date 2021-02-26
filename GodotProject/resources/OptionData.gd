@@ -2,8 +2,8 @@ extends Resource
 
 class_name OptionData
 
-export(String) var title
-export(String) var tooltip
+var title
+var tooltip
 
 func _init(args):
 	title = args["title"]

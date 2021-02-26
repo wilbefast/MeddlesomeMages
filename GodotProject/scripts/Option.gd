@@ -1,18 +1,19 @@
 extends Control
 
-signal on_chosen(content)
-signal on_hovered(content)
+signal on_chosen(option)
+signal on_tooltipped(option)
 
-var content = "Burn them all!"
+var optionData : OptionData setget option_set
 
-func _ready():
-	$Button.text = content
+func option_set(value):
+	optionData = value
+	$Button.text = optionData.title 
 
 func _on_Button_pressed():
-	emit_signal("on_chosen", content)
+	emit_signal("on_chosen", optionData)
 
 func _on_Button_mouse_entered():
-	emit_signal("on_hovered", content)
+	emit_signal("on_tooltipped", optionData, true)
 
 func _on_Button_mouse_exited():
-	emit_signal("on_hovered", null)
+	emit_signal("on_tooltipped", optionData, false)

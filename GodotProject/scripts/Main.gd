@@ -21,6 +21,7 @@ func restart():
 	$GameOver.hide()
 
 func next_dilemma(option):
+	# TODO: save option
 	dilemma_index += 1
 	if dilemma_index >= Database.dilemmas.size():
 		$Dilemma.hide()	

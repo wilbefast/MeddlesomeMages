@@ -15,6 +15,7 @@ var dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"question" : "'Flal', What does it mean? Where did it come from?"
+		"question" : "'Flal', What does it mean? Where did it come from?",
+		"options" : []
 	})
 ]
