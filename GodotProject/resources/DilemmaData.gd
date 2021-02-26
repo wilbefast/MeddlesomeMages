@@ -2,9 +2,7 @@ extends Resource
 
 class_name DilemmaData
 
-export(String) var title
-export(String) var description
+export(String) var question
 
-func _init(p_title = "", p_description = ""):
-	title = p_title
-	description = p_description
+func _init(args):
+	question = args["question"]

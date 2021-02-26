@@ -19,6 +19,8 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+questionLabel = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/QuestionLabel")
+optionContainer = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/OptionContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
@@ -75,7 +77,7 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+[node name="QuestionLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 424.0
 margin_right = 1143.0
 margin_bottom = 474.0
