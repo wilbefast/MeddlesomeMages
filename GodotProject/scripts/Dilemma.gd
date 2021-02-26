@@ -9,15 +9,21 @@ export(NodePath) var optionContainer
 export(NodePath) var optionTooltip
 
 func set_data(dilemmaData : DilemmaData):
+	# Hide tooltip
+	var optionTooltipNode = get_node(optionTooltip)
+	optionTooltipNode.show_option(null)
+	
+	# Set questions
 	get_node(questionLabel).text = dilemmaData.question
 
+	# Set options
 	var optionContainerNode = get_node(optionContainer)
 	for optionData in dilemmaData.options:
 		var option = OPTION.instance()
 		optionContainerNode.add_child(option)
 		option.optionData = optionData
 		option.connect("on_chosen", self, "chose_option")
-		option.connect("on_tooltipped", get_node(optionTooltip), "show_option")
+		option.connect("on_tooltipped", optionTooltipNode, "show_option")
 
 func chose_option(optionData):
 	var optionContainerNode = get_node(optionContainer)	

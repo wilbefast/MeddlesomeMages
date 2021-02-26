@@ -16,6 +16,11 @@ var dilemmas = [
 	}),
 	DilemmaData.new({
 		"question" : "'Flal', What does it mean? Where did it come from?",
-		"options" : []
+		"options" : [
+			OptionData.new({
+				"title" : "Abandon hope",
+				"tooltip" : "Today is not the day that we understand 'flal'..."
+			})
+		]
 	})
 ]
