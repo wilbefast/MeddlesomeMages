@@ -4,8 +4,6 @@
 [ext_resource path="res://images/9patch.png" type="Texture" id=2]
 [ext_resource path="res://scripts/OptionTooltip.gd" type="Script" id=3]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 1 )
@@ -19,6 +17,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+tooltip_label = NodePath("CenterContainer/TooltipLabel")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
@@ -46,10 +45,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CenterContainer"]
-margin_left = 139.0
+[node name="TooltipLabel" type="Label" parent="CenterContainer"]
+margin_left = 140.0
 margin_top = 51.0
-margin_right = 1139.0
+margin_right = 1140.0
 margin_bottom = 154.0
 rect_min_size = Vector2( 1000, 0 )
 custom_fonts/font = SubResource( 1 )

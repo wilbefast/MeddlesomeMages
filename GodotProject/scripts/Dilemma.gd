@@ -4,29 +4,29 @@ const OPTION = preload("res://scenes/Option.tscn")
 
 signal on_resolved(option)
 
-export(NodePath) var questionLabel
-export(NodePath) var optionContainer
-export(NodePath) var optionTooltip
+export(NodePath) var question_label
+export(NodePath) var option_container
+export(NodePath) var option_tooltip
 
-func set_data(dilemmaData : DilemmaData):
+func set_data(dilemma_data : DilemmaData):
 	# Hide tooltip
-	var optionTooltipNode = get_node(optionTooltip)
-	optionTooltipNode.show_option(null)
+	var option_tooltip_node = get_node(option_tooltip)
+	option_tooltip_node.show_option(null)
 	
 	# Set questions
-	get_node(questionLabel).text = dilemmaData.question
+	get_node(question_label).text = dilemma_data.question
 
 	# Set options
-	var optionContainerNode = get_node(optionContainer)
-	for optionData in dilemmaData.options:
+	var option_container_node = get_node(option_container)
+	for option_data in dilemma_data.options:
 		var option = OPTION.instance()
-		optionContainerNode.add_child(option)
-		option.optionData = optionData
+		option_container_node.add_child(option)
+		option.option_data = option_data
 		option.connect("on_chosen", self, "chose_option")
-		option.connect("on_tooltipped", optionTooltipNode, "show_option")
+		option.connect("on_tooltipped", option_tooltip_node, "show_option")
 
 func chose_option(optionData):
-	var optionContainerNode = get_node(optionContainer)	
-	for option in optionContainerNode.get_children():
+	var option_container_node = get_node(option_container)	
+	for option in option_container_node.get_children():
 		option.queue_free()
 	emit_signal("on_resolved", optionData)

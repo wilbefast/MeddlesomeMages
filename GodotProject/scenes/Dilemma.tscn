@@ -18,9 +18,9 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-questionLabel = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/QuestionLabel")
-optionContainer = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/OptionContainer")
-optionTooltip = NodePath("MarginContainer/VBoxContainer/OptionTooltip")
+question_label = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/QuestionLabel")
+option_container = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/OptionContainer")
+option_tooltip = NodePath("MarginContainer/VBoxContainer/OptionTooltip")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5

@@ -15,7 +15,7 @@ var dilemmas = [
 			OptionData.new({
 				"title" : "Derp",
 				"tooltip" : "Derping sounds like the right option.",
-				"attributeModifiers" : {
+				"attribute_modifiers" : {
 					"domination" : 1,
 					"immortality" : 2
 				}
@@ -23,7 +23,7 @@ var dilemmas = [
 			OptionData.new({
 				"title" : "Don't derp",
 				"tooltip" : "Derping? What an awful notion!",
-				"attributeModifiers" : {
+				"attribute_modifiers" : {
 					"knowledge" : 1,
 					"justice" : 2
 				}
@@ -36,7 +36,7 @@ var dilemmas = [
 			OptionData.new({
 				"title" : "Abandon hope",
 				"tooltip" : "Today is not the day that we understand 'flal'...",
-				"attributeModifiers" : {
+				"attribute_modifiers" : {
 					"justice" : 1,
 					"sensation" : 2
 				}

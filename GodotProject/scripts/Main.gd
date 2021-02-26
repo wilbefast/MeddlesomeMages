@@ -30,18 +30,22 @@ func restart():
 	$GameOver.hide()
 	$Title.show()
 
-func next_dilemma(optionData : OptionData):
+func next_dilemma(option_data : OptionData):
 	# update model
-	print("Chose option ", optionData.title)
-	for key in optionData.attributeModifiers:
-		attributes[key] += optionData.attributeModifiers[key]
+	print("Chose option ", option_data.title)
+	for key in option_data.attribute_modifiers:
+		attributes[key] += option_data.attribute_modifiers[key]
 		print(key, " now has value ", attributes[key])
-	chosen_options.push_back(optionData.title)
+	chosen_options.push_back(option_data.title)
 	var new_dilemma = dilemmas.pop_front()
 	
 	# update view
 	if new_dilemma == null:
-		print("Gameover - chosen option were ", chosen_options)
+		print("- GAME OVER -")
+		print("chosen option were: ", chosen_options)
+		print("final values for attributes are:")
+		for key in attributes:
+			 print(key, " = ", attributes[key])
 		$Dilemma.hide()	
 		$GameOver.show()
 	else:
