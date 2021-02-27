@@ -27,38 +27,34 @@ func generate_text(attributes : Dictionary):
 	
 func _generate_renown_text(attribute_names : Array) -> String:
 	# "The goblins know you as Gremweld the grey, speaking in hushed tones of your turquoise robes and staff made from a dragon's tooth." 
-	var result = "The %s know you as %s %s, speaking in hushes tones of your %s %s and %s made from %s"
-	result = result % [ _race(), _name(), _epithet(), _colour(), _clothes(), _tool(), _material() ] 
-	#var word = words[randi() % words.size()]
+	var result = "The %s know you as %s %s, %s of your %s %s and %s %s made from %s."
+	result = result % _get_random(["race", "name", "epithet", "legend", "colour", "clothes", "quality", "tool", "material" ])
 	return result
 
 func _generate_quest_text(attribute_names : Array) -> String:
 	# "Your quest to leave your mark on the world is the stuff of legend."
-	#var word = words[randi() % words.size()]
-	return "derp"
+	return attribute_names[0]
 
 func _generate_wisdom_text(attribute_names : Array) -> String:
 	# "But you know all too well that history is written by the victors: only through power can one live eternal."	
-	#var word = words[randi() % words.size()]
-	return "derp"
+		return attribute_names[1]
 
-func _race() -> String:
-	return "elves"
-	
-func _name() -> String:
-	return "Mike"
+var _thesaurus = {
+	"race" : ["elves", "dwarves", "giants", "goblins", "gnomes", "trolls"],
+	"name" : ["Meldrick", "Zalthar", "Kaliki", "Belux", "Alteir", "Xana", "Wiltred", "Vortoth", "Fandun", "Gelidan"],
+	"epithet" : ["Hawkeye", "The Wise", "The Wandering", "The Beast", "Stormcloud", "Undefeated"],
+	"legend" : ["speaking in hushed tones", "scaring their children with tales", "spreading word far and wide"],
+	"colour" : ["red", "orange", "yellow", "white", "green", "blue", "indigo", "purple", "black", "grey", "black", "brown"],
+	"clothes" : ["rags", "robes", "hood", "cloak", "mask", "hat"],
+	"quality" : ["mighty", "deadly", "glowing", "burning", "hypnotic", "unbreakable"],
+	"tool" : ["wand", "staff", "spear", "club", "rod"],
+	"material" : ["a dragon's tooth", "an ancient oak", "a fallen star", "pure energy"]
+}
 
-func _epithet() -> String:
-	return "the strong"
-
-func _colour() -> String:
-	return "pink"
-	
-func _clothes() -> String:
-	return "rags"
-	
-func _tool() -> String:
-	return "compass"
-	
-func _material() -> String:
-	return "glass"
+func _get_random(args : Array) -> Array:
+	randomize()
+	var result = []
+	for a in args:
+		var possibilities = _thesaurus[a]
+		result.push_back(possibilities[randi() % possibilities.size()])
+	return result
