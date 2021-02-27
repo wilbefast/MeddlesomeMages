@@ -46,6 +46,7 @@ func next_dilemma(option_data : OptionData):
 		print("final values for attributes are:")
 		for key in attributes:
 			 print(key, " = ", attributes[key])
+		$GameOver.generate_text(attributes)
 		$Dilemma.hide()	
 		$GameOver.show()
 	else:

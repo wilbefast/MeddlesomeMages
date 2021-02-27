@@ -3,11 +3,11 @@
 [ext_resource path="res://fonts/dum1.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/GameOver.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=1]
-size = 128
+[sub_resource type="DynamicFont" id=2]
+size = 48
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -16,8 +16,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
+renown_label = NodePath("CenterContainer/VBoxContainer/RenownLabel")
+quest_label = NodePath("CenterContainer/VBoxContainer/QuestLabel")
+wisdom_label = NodePath("CenterContainer/VBoxContainer/WisdomLabel")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -28,25 +32,54 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 689.0
-margin_top = 417.0
-margin_right = 1231.0
-margin_bottom = 663.0
+margin_left = 560.0
+margin_top = 182.0
+margin_right = 1360.0
+margin_bottom = 898.0
 custom_constants/separation = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 542.0
-margin_bottom = 132.0
-custom_fonts/font = SubResource( 1 )
-text = "Game Over"
-align = 1
-valign = 1
-
-[node name="SubtitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 196.0
-margin_right = 542.0
-margin_bottom = 246.0
+[node name="RenownLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 209.0
+rect_min_size = Vector2( 800, 0 )
 custom_fonts/font = SubResource( 2 )
-text = "Thank you for playing"
+text = "The goblins know you as Gremweld the grey, speaking in hushed whispers of your turquoise robes and mighty staff made from a dragon's tooth."
 align = 1
 valign = 1
+autowrap = true
+
+[node name="QuestLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 273.0
+margin_right = 800.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 800, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "Your quest to leave your mark on the world is the stuff of legend."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="WisdomLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 440.0
+margin_right = 800.0
+margin_bottom = 596.0
+rect_min_size = Vector2( 800, 0 )
+custom_fonts/font = SubResource( 2 )
+text = "But you know all too well that history is written by the victors: only through power can one live eternal."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 660.0
+margin_right = 800.0
+margin_bottom = 716.0
+custom_fonts/font = SubResource( 3 )
+text = "Start again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
