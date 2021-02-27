@@ -8,6 +8,9 @@ var attributes = [
 	"sensation"
 ]
 
+func _init():
+	randomize()
+
 var dilemmas = [ 
 	DilemmaData.new({
 		"question" : "To derp or not to derp? That is the question.",

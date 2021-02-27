@@ -34,7 +34,8 @@ func next_dilemma(option_data : OptionData):
 	# update model
 	print("Chose option ", option_data.title)
 	for key in option_data.attribute_modifiers:
-		attributes[key] += option_data.attribute_modifiers[key]
+#		attributes[key] += option_data.attribute_modifiers[key]
+		attributes[key] += randi()
 		print(key, " now has value ", attributes[key])
 	chosen_options.push_back(option_data.title)
 	var new_dilemma = dilemmas.pop_front()
