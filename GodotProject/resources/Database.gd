@@ -21,7 +21,95 @@ var _attributes = [
 
 var _dilemmas = [ 
 	DilemmaData.new({
-		"image" : 16,
+		"image" : "tarot_13.jpg",
+		"question" : "A plague is sweeping through the countryside!",
+		"options" : [
+			OptionData.new({
+				"title" : "Help",
+				"tooltip" : "Tend to the sick and better understand the body.",
+				"attribute_modifiers" : {
+					"justice" : 2,
+					"knowledge" : 2
+				}
+			}),
+			OptionData.new({
+				"title" : "Leave",
+				"tooltip" : "It's time to visit other, safer, parts of the world.",
+				"attribute_modifiers" : {
+					"immortality" : 3,
+					"freedom" : 1
+				}
+			}),
+			OptionData.new({
+				"title" : "Gloat",
+				"tooltip" : "That'll teach them to ask you for love potions!",
+				"attribute_modifiers" : {
+					"domination" : 3,
+					"freedom" : 1
+				}
+			})
+		]
+	}),
+	DilemmaData.new({
+		"image" : "tarot_09.jpg",
+		"question" : "What spell have you most often cast on others?",
+		"options" : [
+			OptionData.new({
+				"title" : "Fireball",
+				"tooltip" : "Sometimes you get impatient. Often, to be honest...",
+				"attribute_modifiers" : {
+					"freedom" : 4
+				}
+			}),
+			OptionData.new({
+				"title" : "Command",
+				"tooltip" : "It's amazing what people will tell you when forced.",
+				"attribute_modifiers" : {
+					"domination" : 2,
+					"knowledge" : 2
+				}
+			}),
+			OptionData.new({
+				"title" : "Heal",
+				"tooltip" : "Repairing the body is something of a personal obsession.",
+				"attribute_modifiers" : {
+					"justice" : 3,
+					"immortality" : 1
+				}
+			})
+		]
+	}),
+	DilemmaData.new({
+		"image" : "tarot_15.jpg",
+		"question" : "When you stare into the abyss, what stares back?",
+		"options" : [
+			OptionData.new({
+				"title" : "Excess",
+				"tooltip" : "A mass of undulating curves and hungry maws.",
+				"attribute_modifiers" : {
+					"freedom" : 3,
+					"knowledge" : 1
+				}
+			}),
+			OptionData.new({
+				"title" : "Ambition",
+				"tooltip" : "Crowned in sinew, it grins from its throne of skulls.",
+				"attribute_modifiers" : {
+					"domination" : 2,
+					"immortality" : 2
+				}
+			}),
+			OptionData.new({
+				"title" : "Vengeance",
+				"tooltip" : "Blind, it strikes out wildly with hooked blades.",
+				"attribute_modifiers" : {
+					"justice" : 2
+				}
+			})
+		]
+	}),
+	DilemmaData.new({
+		"image" : "tarot_16.jpg",
 		"question" : "When not out travelling the world, where do you abide?",
 		"options" : [
 			OptionData.new({
@@ -51,7 +139,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 18,
+		"image" : "tarot_18.jpg",
 		"question" : "Mournful spirits haunt the site of a recent battlefield...",
 		"options" : [
 			OptionData.new({
@@ -80,7 +168,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 20,
+		"image" : "tarot_20.jpg",
 		"question" : "A ritual to gain foreknowledge of your death would be...",
 		"options" : [
 			OptionData.new({
@@ -109,7 +197,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 12,
+		"image" : "tarot_12.jpg",
 		"question" : "Ahead on the road, bandits have held up a merchant caravan...",
 		"options" : [
 			OptionData.new({
@@ -138,7 +226,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 4,
+		"image" : "tarot_05.jpg",
 		"question" : "You are summoned to court, how do you respond?",
 		"options" : [
 			OptionData.new({
@@ -168,7 +256,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 0,
+		"image" : "tarot_08.jpg",
 		"question" : "What sort of familiar keeps you company?",
 		"options" : [
 			OptionData.new({
@@ -197,7 +285,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : 10,
+		"image" : "tarot_10.jpg",
 		"question" : "The old king is dead! Which pretender do you support?",
 		"options" : [
 			OptionData.new({
