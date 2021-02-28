@@ -3,11 +3,11 @@
 [ext_resource path="res://fonts/dum1.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/GameOver.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -21,7 +21,6 @@ __meta__ = {
 }
 renown_label = NodePath("CenterContainer/VBoxContainer/RenownLabel")
 quest_label = NodePath("CenterContainer/VBoxContainer/QuestLabel")
-wisdom_label = NodePath("CenterContainer/VBoxContainer/WisdomLabel")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -33,9 +32,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 560.0
-margin_top = 182.0
+margin_top = 239.0
 margin_right = 1360.0
-margin_bottom = 898.0
+margin_bottom = 841.0
 custom_constants/separation = 64
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,7 +44,7 @@ __meta__ = {
 margin_right = 800.0
 margin_bottom = 209.0
 rect_min_size = Vector2( 800, 0 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "The goblins know you as Gremweld the grey, speaking in hushed whispers of your turquoise robes and mighty staff made from a dragon's tooth."
 align = 1
 valign = 1
@@ -54,32 +53,39 @@ autowrap = true
 [node name="QuestLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 273.0
 margin_right = 800.0
-margin_bottom = 376.0
+margin_bottom = 482.0
 rect_min_size = Vector2( 800, 0 )
-custom_fonts/font = SubResource( 2 )
-text = "Your quest to leave your mark on the world is the stuff of legend."
+custom_fonts/font = SubResource( 1 )
+text = "Your quest to leave your mark on the world is the stuff of legend:  you know all too well that history is written by the victors: only through power can one live eternal."
 align = 1
 valign = 1
 autowrap = true
 
-[node name="WisdomLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 440.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 546.0
 margin_right = 800.0
-margin_bottom = 596.0
-rect_min_size = Vector2( 800, 0 )
-custom_fonts/font = SubResource( 2 )
-text = "But you know all too well that history is written by the victors: only through power can one live eternal."
-align = 1
-valign = 1
-autowrap = true
+margin_bottom = 602.0
+custom_constants/separation = 32
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 660.0
-margin_right = 800.0
-margin_bottom = 716.0
-custom_fonts/font = SubResource( 3 )
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 384.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
 text = "Start again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+
+[node name="ClipboardButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 416.0
+margin_right = 800.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Copy to clipboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/ClipboardButton" to="." method="_on_ClipboardButton_pressed"]

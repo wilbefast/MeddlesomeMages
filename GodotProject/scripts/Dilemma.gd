@@ -28,5 +28,9 @@ func set_data(dilemma_data : DilemmaData):
 func chose_option(option_data):
 	var option_container_node = get_node(option_container)	
 	for option in option_container_node.get_children():
+		# Remove the old buttons
 		option.queue_free()
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	# Add the new buttons
 	emit_signal("on_resolved", option_data)

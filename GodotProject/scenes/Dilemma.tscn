@@ -13,9 +13,13 @@ font_data = ExtResource( 2 )
 [node name="Dilemma" type="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_top = 40.0
+margin_left = -23.5452
+margin_top = 87.0902
+margin_right = -23.5452
+margin_bottom = 87.0902
 script = ExtResource( 4 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 question_label = NodePath("MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/QuestionLabel")
@@ -41,7 +45,6 @@ custom_constants/separation = 32
 margin_right = 1280.0
 margin_bottom = 640.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
