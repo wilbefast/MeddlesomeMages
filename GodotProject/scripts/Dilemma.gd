@@ -5,6 +5,7 @@ const Option = preload("res://scenes/Option.tscn")
 signal on_resolved(option)
 
 export(NodePath) var question_label
+export(NodePath) var illustration
 export(NodePath) var option_container
 export(NodePath) var option_tooltip
 
@@ -12,6 +13,9 @@ func set_data(dilemma_data : DilemmaData):
 	# Hide tooltip
 	var option_tooltip_node = get_node(option_tooltip)
 	option_tooltip_node.show_option(null)
+	
+	# Set illustration
+	get_node(illustration).texture = load(dilemma_data.image)
 	
 	# Set questions
 	get_node(question_label).text = dilemma_data.question

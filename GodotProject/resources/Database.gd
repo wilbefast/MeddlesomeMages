@@ -256,7 +256,7 @@ var _dilemmas = [
 		]
 	}),
 	DilemmaData.new({
-		"image" : "tarot_08.jpg",
+		"image" : "tarot_01.jpg",
 		"question" : "What sort of familiar keeps you company?",
 		"options" : [
 			OptionData.new({

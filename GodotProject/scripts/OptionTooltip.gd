@@ -14,13 +14,17 @@ func show_option(new_option_data : OptionData, do_show : bool = true):
 	if do_show and new_option_data != null:
 		# Tooltip description
 		option_data = new_option_data
-		get_node(tooltip_label).text = option_data.tooltip
+		# This is broken for reasons I can't fathom				
+		#get_node(tooltip_label).text = option_data.tooltip
+		$VBoxContainer/TooltipLabel.text = option_data.tooltip
 		
 		# Tooltip breakdown
-		var attitude_modifier_container_node = get_node(attribute_modifier_container)
+		# This is broken for reasons I can't fathom		
+		#var attribute_modifier_container_node = get_node(attribute_modifier_container)
+		var attribute_modifier_container_node = $VBoxContainer/AttributeModifierContainer
 		for attribute in option_data.attribute_modifiers:
 			var modifier_label = AttributeModifierLabel.instance()
-			attitude_modifier_container_node.add_child(modifier_label)
+			attribute_modifier_container_node.add_child(modifier_label)
 			
 			var modifier_value = option_data.attribute_modifiers[attribute]
 			assert(modifier_value != 0)
@@ -31,8 +35,11 @@ func show_option(new_option_data : OptionData, do_show : bool = true):
 		# all done, show it off
 		show()
 	else:
+		# This is broken for reasons I can't fathom		
+		#var attribute_modifier_container_node = get_node(attribute_modifier_container)
+		var attribute_modifier_container_node = $VBoxContainer/AttributeModifierContainer
+		assert(attribute_modifier_container_node != null)
 		option_data = null
-		var attitude_modifier_container_node = get_node(attribute_modifier_container)
-		for attitude_modifier_label in attitude_modifier_container_node.get_children():
-			attitude_modifier_label.queue_free() 		
+		for attribute_modifier_label in attribute_modifier_container_node.get_children():
+			attribute_modifier_label.queue_free() 		
 		hide()

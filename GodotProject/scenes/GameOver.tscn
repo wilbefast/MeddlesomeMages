@@ -4,11 +4,11 @@
 [ext_resource path="res://scripts/GameOver.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 64
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 48
+size = 64
 font_data = ExtResource( 1 )
 
 [node name="GameOver" type="Control"]
@@ -31,45 +31,47 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 560.0
-margin_top = 239.0
-margin_right = 1360.0
-margin_bottom = 841.0
+margin_left = 460.0
+margin_top = 127.0
+margin_right = 1460.0
+margin_bottom = 952.0
 custom_constants/separation = 64
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RenownLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 800.0
-margin_bottom = 209.0
-rect_min_size = Vector2( 800, 0 )
+margin_right = 1000.0
+margin_bottom = 277.0
+rect_min_size = Vector2( 1000, 0 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 text = "The goblins know you as Gremweld the grey, speaking in hushed whispers of your turquoise robes and mighty staff made from a dragon's tooth."
 align = 1
 valign = 1
 autowrap = true
 
 [node name="QuestLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 273.0
-margin_right = 800.0
-margin_bottom = 482.0
-rect_min_size = Vector2( 800, 0 )
+margin_top = 341.0
+margin_right = 1000.0
+margin_bottom = 688.0
+rect_min_size = Vector2( 1000, 0 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 text = "Your quest to leave your mark on the world is the stuff of legend:  you know all too well that history is written by the victors: only through power can one live eternal."
 align = 1
 valign = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 546.0
-margin_right = 800.0
-margin_bottom = 602.0
+margin_top = 752.0
+margin_right = 1000.0
+margin_bottom = 825.0
 custom_constants/separation = 32
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_right = 384.0
-margin_bottom = 56.0
+margin_right = 484.0
+margin_bottom = 73.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Start again"
@@ -78,9 +80,9 @@ __meta__ = {
 }
 
 [node name="ClipboardButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 416.0
-margin_right = 800.0
-margin_bottom = 56.0
+margin_left = 516.0
+margin_right = 1000.0
+margin_bottom = 73.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Copy to clipboard"
