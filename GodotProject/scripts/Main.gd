@@ -1,8 +1,9 @@
 extends Node
 
-var chosen_options : Array = []
-var attributes : Dictionary
-var dilemmas : Array
+var _chosen_options : Array = []
+var _attributes : Dictionary
+var _max_attributes : Dictionary
+var _dilemmas : Array
 
 func _ready():
 	$Dilemma.hide()
@@ -14,17 +15,21 @@ func _unhandled_input(event):
 
 func start_game():
 	# update model
-	attributes = Database.get_initial_attributes()
-	dilemmas = Database.get_initial_dilemmas()
+	_attributes = Database.get_initial_attributes()
+	_dilemmas = Database.get_initial_dilemmas(5)
+	_max_attributes = Database.get_max_attributes(_dilemmas)
+	print("drew ", _dilemmas.size(), " dilemmas for this playthrough")
+	for m in _max_attributes.keys():
+		print("maximum possible ", m, ": ", _max_attributes[m])
 	
 	# update view
 	$Title.hide()
 	$Dilemma.show()
-	$Dilemma.set_data(dilemmas.pop_front())
+	$Dilemma.set_data(_dilemmas.pop_front())
 
 func restart():
 	# update model
-	chosen_options.clear()
+	_chosen_options.clear()
 	
 	# update view
 	$GameOver.hide()
@@ -34,19 +39,28 @@ func next_dilemma(option_data : OptionData):
 	# update model
 	print("Chose option ", option_data.title)
 	for key in option_data.attribute_modifiers:
-		attributes[key] += option_data.attribute_modifiers[key]
-		print(key, " now has value ", attributes[key])
-	chosen_options.push_back(option_data.title)
-	var new_dilemma = dilemmas.pop_front()
+		_attributes[key] += option_data.attribute_modifiers[key]
+		print(key, " now has value ", _attributes[key])
+	_chosen_options.push_back(option_data.title)
+	var new_dilemma = _dilemmas.pop_front()
 	
 	# update view
 	if new_dilemma == null:
+		
 		print("- GAME OVER -")
-		print("chosen option were: ", chosen_options)
+		print("chosen option were: ", _chosen_options)
 		print("final values for attributes are:")
-		for key in attributes:
-			 print(key, " = ", attributes[key])
-		$GameOver.generate_text(attributes)
+		for key in _attributes:
+			print(key, " = ", _attributes[key])
+		
+		# Normalise attributes
+		print("normalised attributes are:")
+		for key in _attributes:
+			_attributes[key] /= float(_max_attributes[key])
+			print(key, " = ", _attributes[key])
+		
+		# Update view	
+		$GameOver.generate_text(_attributes)
 		$Dilemma.hide()	
 		$GameOver.show()
 	else:

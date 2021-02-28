@@ -2,6 +2,14 @@ extends Node
 
 func _init():
 	randomize()
+	
+	# Count the number of dilemmas
+	print("there are ", _dilemmas.size(), " dilemmas - if all were used")
+	
+	# Count the maximum possible score per attribute
+	var max_attributes = get_max_attributes()
+	for m in max_attributes.keys():
+		print("maximum possible ", m, ": ", max_attributes[m])
 
 var _attributes = [
 	"domination",
@@ -12,6 +20,65 @@ var _attributes = [
 ]
 
 var _dilemmas = [ 
+	DilemmaData.new({
+		"image" : 16,
+		"question" : "When not out travelling the world, where do you abide?",
+		"options" : [
+			OptionData.new({
+				"title" : "Shack",
+				"tooltip" : "You have little interest in bourgeois hypocrisies",
+				"attribute_modifiers" : {
+					"freedom" : 3,
+					"knowledge" : 1
+				}
+			}),
+			OptionData.new({
+				"title" : "Library",
+				"tooltip" : "A hermit cannot compile records or offer council.",
+				"attribute_modifiers" : {
+					"knowledge" : 3,
+					"justice" : 1
+				}
+			}),
+			OptionData.new({
+				"title" : "Fortress",
+				"tooltip" : "Its defenders' blades are sharp and they never sleep.",
+				"attribute_modifiers" : {
+					"domination" : 3,
+					"immortality" : 1
+				}
+			})
+		]
+	}),
+	DilemmaData.new({
+		"image" : 18,
+		"question" : "Mournful spirits haunt the site of a recent battlefield...",
+		"options" : [
+			OptionData.new({
+				"title" : "Entreat",
+				"tooltip" : "What dark knowledge might these specters impart?",
+				"attribute_modifiers" : {
+					"immortality" : 3,
+					"knowledge" : 1
+				}
+			}),
+			OptionData.new({
+				"title" : "Recruit",
+				"tooltip" : "Promise vengeance to your new army of the dead.",
+				"attribute_modifiers" : {
+					"domination" : 4,
+				}
+			}),
+			OptionData.new({
+				"title" : "Release",
+				"tooltip" : "Help the wraiths to find their way beyond the veil.",
+				"attribute_modifiers" : {
+					"justice" : 2,
+					"freedom" : 2
+				}
+			})
+		]
+	}),
 	DilemmaData.new({
 		"image" : 20,
 		"question" : "A ritual to gain foreknowledge of your death would be...",
@@ -35,8 +102,8 @@ var _dilemmas = [
 				"title" : "Folly",
 				"tooltip" : "To know one's destiny in advance is against nature.",
 				"attribute_modifiers" : {
-					"justice" : 2,
-					"freedom" : 2
+					"justice" : 3,
+					"freedom" : 1
 				}
 			})
 		]
@@ -54,10 +121,10 @@ var _dilemmas = [
 			}),
 			OptionData.new({
 				"title" : "Avoid",
-				"tooltip" : "You are above all this and have other concerns...",
+				"tooltip" : "Your life is far too valuable to be risked...",
 				"attribute_modifiers" : {
-					"knowledge" : 2,
-					"immortality" : 2
+					"immortality" : 2,
+					"domination" : 2
 				}
 			}),
 			OptionData.new({
@@ -75,11 +142,11 @@ var _dilemmas = [
 		"question" : "You are summoned to court, how do you respond?",
 		"options" : [
 			OptionData.new({
-				"title" : "Refuse",
-				"tooltip" : "Politics are a distraction from more meaningful pursuits.",
+				"title" : "Ignore",
+				"tooltip" : "Life is too short to be wasted on politics.",
 				"attribute_modifiers" : {
-					"knowledge" : 2,
-					"immortality" : 2,
+					"immortality" : 3,
+					"knowledge" : 1
 				}
 			}),
 			OptionData.new({
@@ -92,10 +159,10 @@ var _dilemmas = [
 			}),
 			OptionData.new({
 				"title" : "Obey",
-				"tooltip" : "Now's your chance to influence the course of history...",
+				"tooltip" : "You duty, and a chance to pull some strings...",
 				"attribute_modifiers" : {
-					"justice" : 2,
-					"domination" : 2
+					"justice" : 3,
+					"domination" : 1
 				}
 			})
 		]
@@ -211,11 +278,21 @@ func get_initial_attributes():
 		result[a] = 0
 	return result
 
-func get_initial_dilemmas():
+func get_max_attributes(dilemmas : Array = _dilemmas):
+	var result = get_initial_attributes()
+	for d in dilemmas:
+		for o in d.options:
+			for m in result.keys():
+				if o.attribute_modifiers.has(m):
+					result[m] += o.attribute_modifiers[m]
+	return result
+
+func get_initial_dilemmas(count : int = _dilemmas.size()):
 	var result = []
 	for d in _dilemmas:
 		result.push_back(d)
 	result.shuffle()
+	result.resize(count)
 	return result
 
 func bake_synonyms(template : String, words : Array) -> String:

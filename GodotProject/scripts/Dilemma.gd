@@ -18,6 +18,7 @@ func set_data(dilemma_data : DilemmaData):
 
 	# Set options
 	var option_container_node = get_node(option_container)
+	dilemma_data.options.shuffle()
 	for option_data in dilemma_data.options:
 		var option = Option.instance()
 		option_container_node.add_child(option)
