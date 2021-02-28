@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Castlecall.ogg-bea6427a6ebaa9af7853841c220db097.oggstr"
+
+[deps]
+
+source_file="res://music/Castlecall.ogg"
+dest_files=[ "res://.import/Castlecall.ogg-bea6427a6ebaa9af7853841c220db097.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

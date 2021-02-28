@@ -26,6 +26,9 @@ func start_game():
 	$Title.hide()
 	$Dilemma.show()
 	$Dilemma.set_data(_dilemmas.pop_front())
+	
+	# play sound
+	$NextDilemmaSound.play()
 
 func restart():
 	# update model
@@ -34,6 +37,9 @@ func restart():
 	# update view
 	$GameOver.hide()
 	$Title.show()
+	
+	# play sound
+	$GameOverSound.play()
 
 func next_dilemma(option_data : OptionData):
 	# update model
@@ -63,6 +69,11 @@ func next_dilemma(option_data : OptionData):
 		$GameOver.generate_text(_attributes)
 		$Dilemma.hide()	
 		$GameOver.show()
+		
+		# play sound
+		$GameOverSound.play()
 	else:
 		$Dilemma.set_data(new_dilemma)
-	
+			
+		# play sound
+		$NextDilemmaSound.play()
