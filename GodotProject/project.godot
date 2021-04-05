@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Meddlesome Wizards"
+config/name="Meddlesome Mages"
 run/main_scene="res://scenes/Main.tscn"
 boot_splash/bg_color=Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 config/icon="res://icon.png"

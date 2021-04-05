@@ -30,7 +30,7 @@ func generate_text(attributes : Dictionary):
 func _generate_renown_text(attribute_names : Array) -> String:
 	# "The goblins know you as Gremweld the grey, speaking in hushed tones of your turquoise robes and staff made from a dragon's tooth." 
 	return Database.bake_synonyms("The %s know you as %s %s, %s of your %s %s and %s %s made from %s.", 
-			["race", "name", "epithet", "legend", "colour", "clothes", "quality", "tool", "material" ])
+			["race", "name", "epithet_" + attribute_names[0], "legend", "colour_" + attribute_names[0], "clothes", "quality", "tool", "material" ])
 
 func _generate_quest_text(attribute_names : Array) -> String:
 	# "Your quest to leave your mark on the world is the stuff of legend."
